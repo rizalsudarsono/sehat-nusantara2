@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Formulir pendaftaran pasien online Klinik Pratama Sehat Nusantara.">
+  <title>Pendaftaran Online | Klinik Pratama Sehat Nusantara</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body>
+  <a class="skip-link" href="#konten-utama">Lewati ke konten utama</a>
+  <header id="header-situs">
+    <a class="brand" href="index.html">
+      <img src="img/logo.svg" alt="Logo Klinik Pratama Sehat Nusantara" width="48" height="48">
+      <span><strong>Sehat Nusantara</strong><br>Klinik Pratama Kota Kediri</span>
+    </a>
+    <nav id="navigasi-utama" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="dokter.html">Dokter</a></li>
+      <li><a href="pendaftaran.html" aria-current="page">Pendaftaran</a></li>
+    </ul>
+    </nav>
+    <button type="button" id="btn-tema" aria-pressed="false" aria-label="Ganti mode terang atau gelap">Mode gelap</button>
+  </header>
+
+  <main id="konten-utama">
+    <section id="judul-halaman">
+      <h1>Pendaftaran Pasien Online</h1>
+      <p>Isi formulir berikut. Kolom bertanda <abbr title="wajib diisi">*</abbr> wajib diisi.</p>
+    </section>
+
+    <section id="formulir">
+      <form id="form-pendaftaran" action="#" method="post" novalidate>
+        <fieldset>
+          <legend>Data Pribadi</legend>
+        <p>
+          <label for="nama">Nama lengkap <abbr title="wajib diisi">*</abbr></label>
+          <input type="text" id="nama" name="nama" aria-describedby="petunjuk-nama galat-nama" autocomplete="name">
+          <small id="petunjuk-nama">Hanya huruf dan spasi, minimal 3 karakter.</small>
+          <small class="pesan-galat" id="galat-nama" aria-live="polite"></small>
+        </p>
+        <p>
+          <label for="nik">NIK <abbr title="wajib diisi">*</abbr></label>
+          <input type="text" id="nik" name="nik" aria-describedby="petunjuk-nik galat-nik" inputmode="numeric" maxlength="16">
+          <small id="petunjuk-nik">16 digit angka.</small>
+          <small class="pesan-galat" id="galat-nik" aria-live="polite"></small>
+        </p>
+        <p>
+          <label for="tgl-lahir">Tanggal lahir <abbr title="wajib diisi">*</abbr></label>
+          <input type="date" id="tgl-lahir" name="tgl-lahir" aria-describedby="galat-tgl-lahir">
+          <small class="pesan-galat" id="galat-tgl-lahir" aria-live="polite"></small>
+        </p>
+        <p id="info-usia">Usia: <output id="usia-pasien" for="tgl-lahir">-</output></p>
+        <fieldset id="grup-jk">
+          <legend>Jenis kelamin <abbr title="wajib diisi">*</abbr></legend>
+          <label><input type="radio" name="jk" value="Laki-laki"> Laki-laki</label>
+          <label><input type="radio" name="jk" value="Perempuan"> Perempuan</label>
+          <small class="pesan-galat" id="galat-jk" aria-live="polite"></small>
+        </fieldset>
+        <p>
+          <label for="hp">Nomor HP <abbr title="wajib diisi">*</abbr></label>
+          <input type="tel" id="hp" name="hp" aria-describedby="petunjuk-hp galat-hp" inputmode="numeric" autocomplete="tel">
+          <small id="petunjuk-hp">Diawali 08 atau 62, panjang 10–14 digit.</small>
+          <small class="pesan-galat" id="galat-hp" aria-live="polite"></small>
+        </p>
+        <p>
+          <label for="email">Email (opsional)</label>
+          <input type="email" id="email" name="email" aria-describedby="galat-email" autocomplete="email">
+          <small class="pesan-galat" id="galat-email" aria-live="polite"></small>
+        </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Data Kunjungan</legend>
+        <p>
+          <label for="poli">Poliklinik <abbr title="wajib diisi">*</abbr></label>
+          <select id="poli" name="poli" aria-describedby="galat-poli">
+            <option value="">-- Pilih poliklinik --</option>
+            <option value="umum">Poli Umum</option>
+            <option value="gigi">Poli Gigi</option>
+            <option value="kia">Poli Kesehatan Ibu dan Anak</option>
+            <option value="gizi">Poli Gizi</option>
+          </select>
+          <small class="pesan-galat" id="galat-poli" aria-live="polite"></small>
+        </p>
+        <p>
+          <label for="dokter">Dokter <abbr title="wajib diisi">*</abbr></label>
+          <select id="dokter" name="dokter" aria-describedby="galat-dokter" disabled>
+            <option value="">-- Pilih poliklinik terlebih dahulu --</option>
+          </select>
+          <small class="pesan-galat" id="galat-dokter" aria-live="polite"></small>
+        </p>
+        <p>
+          <label for="tgl-kunjungan">Tanggal kunjungan <abbr title="wajib diisi">*</abbr></label>
+          <input type="date" id="tgl-kunjungan" name="tgl-kunjungan" aria-describedby="petunjuk-tgl-kunjungan galat-tgl-kunjungan">
+          <small id="petunjuk-tgl-kunjungan">Paling cepat hari ini, paling lambat 14 hari ke depan.</small>
+          <small class="pesan-galat" id="galat-tgl-kunjungan" aria-live="polite"></small>
+        </p>
+        <p>
+          <label for="keluhan">Keluhan <abbr title="wajib diisi">*</abbr></label>
+          <textarea id="keluhan" name="keluhan" rows="4" maxlength="200" aria-describedby="petunjuk-keluhan galat-keluhan"></textarea>
+          <small id="petunjuk-keluhan">10–200 karakter. Sisa: <span id="sisa-karakter">200</span></small>
+          <small class="pesan-galat" id="galat-keluhan" aria-live="polite"></small>
+        </p>
+        </fieldset>
+
+        <p>
+          <input type="checkbox" id="setuju" name="setuju">
+          <label for="setuju">Saya menyetujui data saya digunakan untuk keperluan pendaftaran klinik. <abbr title="wajib diisi">*</abbr></label>
+          <small class="pesan-galat" id="galat-setuju" aria-live="polite"></small>
+        </p>
+
+        <p>
+          <button type="submit" id="btn-kirim">Kirim Pendaftaran</button>
+          <button type="reset" id="btn-reset">Atur Ulang</button>
+        </p>
+      </form>
+    </section>
+
+    <section id="modal-ringkasan" role="dialog" aria-modal="true" aria-labelledby="judul-ringkasan" hidden>
+      <h2 id="judul-ringkasan">Ringkasan Pendaftaran</h2>
+      <p>Nomor antrean: <strong id="ringkas-antrean"></strong></p>
+      <dl>
+        <dt>Nama lengkap</dt><dd id="ringkas-nama"></dd>
+        <dt>NIK</dt><dd id="ringkas-nik"></dd>
+        <dt>Tanggal lahir (usia)</dt><dd id="ringkas-lahir"></dd>
+        <dt>Jenis kelamin</dt><dd id="ringkas-jk"></dd>
+        <dt>Nomor HP</dt><dd id="ringkas-hp"></dd>
+        <dt>Email</dt><dd id="ringkas-email"></dd>
+        <dt>Poliklinik</dt><dd id="ringkas-poli"></dd>
+        <dt>Dokter</dt><dd id="ringkas-dokter"></dd>
+        <dt>Tanggal kunjungan</dt><dd id="ringkas-kunjungan"></dd>
+        <dt>Keluhan</dt><dd id="ringkas-keluhan"></dd>
+      </dl>
+      <button type="button" id="btn-tutup-ringkasan">Tutup</button>
+    </section>
+
+    <section id="riwayat-pendaftaran">
+      <h2>Riwayat Pendaftaran</h2>
+      <p id="info-riwayat">Belum ada pendaftaran.</p>
+      <div id="tabel-riwayat" hidden>
+        <table>
+          <caption>Pendaftaran yang dibuat di perangkat ini</caption>
+          <thead><tr><th scope="col">No. antrean</th><th scope="col">Nama</th><th scope="col">Poliklinik</th><th scope="col">Dokter</th><th scope="col">Tanggal kunjungan</th><th scope="col">Dibuat</th></tr></thead>
+          <tbody id="tbody-riwayat"></tbody>
+        </table>
+      </div>
+      <button type="button" id="btn-hapus-riwayat" hidden>Hapus riwayat</button>
+    </section>
+  </main>
+
+  <footer id="footer-situs">
+    <address>
+      <strong>Klinik Pratama “Sehat Nusantara”</strong><br>
+      Jl. UTS No. 1, Kota Kediri, Jawa Timur (alamat fiktif)<br>
+      Telepon: (0354) 000-000 | Email: info@sehatnusantara.example
+    </address>
+    <p>Senin–Sabtu, 08.00–17.00 WIB</p>
+    <p><small>&copy; 2026 Kelompok 3, S1-Sistem Informasi UN PGRI Kediri. Prototipe front-end untuk tugas Pemrograman Web.</small></p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
