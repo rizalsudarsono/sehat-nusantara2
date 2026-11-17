@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Jadwal praktik dokter Klinik Pratama Sehat Nusantara yang dapat difilter menurut poliklinik.">
+  <title>Jadwal Dokter | Klinik Pratama Sehat Nusantara</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body>
+  <a class="skip-link" href="#konten-utama">Lewati ke konten utama</a>
+  <header id="header-situs">
+    <a class="brand" href="index.html">
+      <img src="img/logo.svg" alt="Logo Klinik Pratama Sehat Nusantara" width="48" height="48">
+      <span><strong>Sehat Nusantara</strong><br>Klinik Pratama Kota Kediri</span>
+    </a>
+    <nav id="navigasi-utama" aria-label="Navigasi utama">
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="layanan.html">Layanan</a></li>
+      <li><a href="dokter.html" aria-current="page">Dokter</a></li>
+      <li><a href="pendaftaran.html">Pendaftaran</a></li>
+    </ul>
+    </nav>
+    <button type="button" id="btn-tema" aria-pressed="false" aria-label="Ganti mode terang atau gelap">Mode gelap</button>
+  </header>
+
+  <main id="konten-utama">
+    <section id="judul-halaman">
+      <h1>Jadwal Dokter</h1>
+      <p>Pilih poliklinik untuk menyaring jadwal dokter yang praktik.</p>
+    </section>
+
+    <section id="jadwal-dokter">
+      <div id="kontrol-jadwal">
+        <label for="filter-poli">Tampilkan poliklinik:</label>
+        <select id="filter-poli" name="filter-poli">
+          <option value="semua">Semua poliklinik</option>
+          <option value="umum">Poli Umum</option>
+          <option value="gigi">Poli Gigi</option>
+          <option value="kia">Poli Kesehatan Ibu dan Anak</option>
+          <option value="gizi">Poli Gizi</option>
+        </select>
+        <button type="button" id="btn-toggle-jadwal" aria-controls="tabel-jadwal">Sembunyikan jadwal</button>
+      </div>
+      <p id="info-hasil" aria-live="polite">Menampilkan 8 dokter.</p>
+
+      <div id="tabel-jadwal">
+        <table>
+          <caption>Jadwal praktik dokter Klinik Pratama Sehat Nusantara</caption>
+          <thead><tr><th scope="col">Nama dokter</th><th scope="col">Poliklinik</th><th scope="col">Hari praktik</th><th scope="col">Jam praktik</th></tr></thead>
+          <tbody id="tbody-dokter">
+          <tr data-poli="umum"><th scope="row"><img src="img/dokter.svg" alt="Foto profil dr. Ahmad Fauzi" width="40" height="40"> dr. Ahmad Fauzi</th><td>Poli Umum</td><td>Senin, Rabu, Jumat</td><td>08.00–12.00 WIB</td></tr>
+          <tr data-poli="umum"><th scope="row"><img src="img/dokter.svg" alt="Foto profil dr. Siti Rahmawati" width="40" height="40"> dr. Siti Rahmawati</th><td>Poli Umum</td><td>Selasa, Kamis, Sabtu</td><td>13.00–17.00 WIB</td></tr>
+          <tr data-poli="gigi"><th scope="row"><img src="img/dokter.svg" alt="Foto profil drg. Budi Santoso" width="40" height="40"> drg. Budi Santoso</th><td>Poli Gigi</td><td>Senin, Kamis</td><td>09.00–14.00 WIB</td></tr>
+          <tr data-poli="gigi"><th scope="row"><img src="img/dokter.svg" alt="Foto profil drg. Maya Putri" width="40" height="40"> drg. Maya Putri</th><td>Poli Gigi</td><td>Selasa, Jumat</td><td>13.00–17.00 WIB</td></tr>
+          <tr data-poli="kia"><th scope="row"><img src="img/dokter.svg" alt="Foto profil dr. Dewi Lestari, Sp.OG" width="40" height="40"> dr. Dewi Lestari, Sp.OG</th><td>Poli Kesehatan Ibu dan Anak</td><td>Senin, Rabu</td><td>08.00–12.00 WIB</td></tr>
+          <tr data-poli="kia"><th scope="row"><img src="img/dokter.svg" alt="Foto profil dr. Rina Kusuma, Sp.A" width="40" height="40"> dr. Rina Kusuma, Sp.A</th><td>Poli Kesehatan Ibu dan Anak</td><td>Selasa, Kamis</td><td>09.00–13.00 WIB</td></tr>
+          <tr data-poli="gizi"><th scope="row"><img src="img/dokter.svg" alt="Foto profil Hana Pratiwi, S.Gz" width="40" height="40"> Hana Pratiwi, S.Gz</th><td>Poli Gizi</td><td>Rabu, Sabtu</td><td>08.00–12.00 WIB</td></tr>
+          <tr data-poli="gizi"><th scope="row"><img src="img/dokter.svg" alt="Foto profil Rudi Hartono, S.Gz" width="40" height="40"> Rudi Hartono, S.Gz</th><td>Poli Gizi</td><td>Senin, Jumat</td><td>13.00–16.00 WIB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a class="tombol" href="pendaftaran.html">Daftar Kunjungan</a></p>
+    </section>
+  </main>
+
+  <footer id="footer-situs">
+    <address>
+      <strong>Klinik Pratama “Sehat Nusantara”</strong><br>
+      Jl. UTS No. 1, Kota Kediri, Jawa Timur (alamat fiktif)<br>
+      Telepon: (0354) 000-000 | Email: info@sehatnusantara.example
+    </address>
+    <p>Senin–Sabtu, 08.00–17.00 WIB</p>
+    <p><small>&copy; 2026 Kelompok 3, S1-Sistem Informasi UN PGRI Kediri. Prototipe front-end untuk tugas Pemrograman Web.</small></p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
